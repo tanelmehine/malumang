@@ -1,0 +1,210 @@
+/* Üldine stiil ja Helvetica */
+body {
+    font-family: Helvetica, sans-serif;
+    margin: 20px;
+    background-color: #fff;
+  }
+  
+  #app {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  /* Pealkiri ja sisendid */
+  #mainTitle {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+  }
+  h2 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 10px;
+  }
+  /* Suurem mängu nime sisend */
+  #gameName {
+    font-size: 1.5em;
+    padding: 8px;
+    margin-bottom: 20px;
+  }
+  
+  /* Nupud – ümarad */
+  button {
+    margin: 5px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    background-color: #26404C;
+    color: white;
+  }
+  
+  /* Navibaari paigutus */
+  .navBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .navLeft, .navRight {
+    display: flex;
+    align-items: center;
+  }
+  #navTitle {
+    margin-right: 10px;
+    font-weight: bold;
+  }
+  
+  /* Vooru nav – kõik nupud samasuurused (välja arvatud aktiivne) */
+  #roundNav button {
+    padding: 6px 10px;
+    margin: 2px;
+    border-radius: 6px;
+    background-color: #ccc;
+    color: #26404C;
+    width: 40px;
+  }
+  #roundNav button.current {
+    border: 2px solid #26404C;
+    background-color: #BF5043;
+    font-size: 1.2em;
+    width: 50px;
+  }
+  
+  /* Punktide sisestamise tabelis olevad nupud – väiksemad ja heledama halliga */
+  .pointsTable button {
+    padding: 4px 6px;
+    font-size: 0.7em;
+    margin: 2px;
+    border: 1px solid #ccc;
+    background-color: #eee;
+    color: #555;
+    border-radius: 6px;
+  }
+  
+  /* Veendume, et punktide sisestamise rea sisu mahtub ühele reale */
+  .pointsTable tr {
+    white-space: nowrap;
+  }
+  
+  /* "Muud" sisendi konteiner: kuvatakse vaikimisi "..." ja väikene LISA nupp */
+  .customContainer {
+    display: inline-block;
+    margin-left: 4px;
+  }
+  .customContainer span {
+    font-size: 0.7em;
+  }
+  .customContainer input {
+    width: 40px;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 0.7em;
+  }
+  .customContainer button {
+    padding: 2px 4px;
+    font-size: 0.6em;
+    border-radius: 6px;
+  }
+  
+  /* Veerg "Vooru punktid" – kollane taust */
+  .pointsTable th:nth-last-child(2) {
+    background-color: #FFD700;
+  }
+  
+  /* Tulemuste tabeli stiilid */
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 10px;
+  }
+  table, th, td {
+    border: 1px solid #26404C;
+  }
+  th, td {
+    padding: 8px;
+    text-align: center;
+  }
+  table thead tr {
+    background-color: #26404C;
+  }
+  table thead tr th {
+    color: white;
+    font-weight: bold;
+  }
+  /* Iga kolme meeskonna järel horisontaalne lõik (bold) */
+  .hrRow td {
+    border-top: 4px solid black;
+  }
+  
+  /* Parempoolne aken – varasemad tiimid; paigutame veidi madalamale */
+  #previousTeams {
+    position: fixed;
+    top: 200px;
+    right: 20px;
+    border: 1px solid #26404C;
+    padding: 10px;
+    border-radius: 8px;
+    width: 200px;
+    background-color: #fff;
+  }
+  #previousTeams h3 {
+    text-align: center;
+    margin-top: 0;
+  }
+  #previousTeams ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  #previousTeams li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+  #previousTeams li button.addFromPrev {
+    background-color: green;
+    border: none;
+    border-radius: 4px;
+    padding: 2px 6px;
+    font-size: 0.7em;
+    color: white;
+    cursor: pointer;
+  }
+  
+  /* Seadete lehe – tiimide sisendi stiilid */
+  #teamList .teamRow {
+    margin-bottom: 10px;
+  }
+  #teamList label {
+    display: inline-block;
+    width: 100px;
+  }
+  #teamList input {
+    width: 250px;
+    padding: 4px;
+    margin-right: 10px;
+  }
+  #teamList button.removeTeamBtn {
+    background-color: #BF5043;
+    border: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    color: white;
+    font-size: 0.8em;
+  }
+  #teamList button.addToPrevBtn {
+    background-color: green;
+    border: none;
+    border-radius: 4px;
+    padding: 2px 6px;
+    font-size: 0.7em;
+    color: white;
+    margin-left: 4px;
+  }
+  

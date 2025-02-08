@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rakendus</title>
+  <!-- Kasutame Helvetica fonti (süsteemifont) -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <!-- Mängu pealkiri (suur font) -->
+    <h1 id="mainTitle">[Mängu nimi]</h1>
+    
+    <!-- AVALEHT -->
+    <div id="homeView">
+      <h2>Tere tulemast!</h2>
+      <button id="btnNewGame">Loo uus mäng</button>
+      <button id="btnEditGame">Muuda vana</button>
+    </div>
+    
+    <!-- SEADED -->
+    <div id="settingsView" style="display: none;">
+      <h2>Seaded</h2>
+      <!-- Mängu nimi suure fondiga -->
+      <label for="gameName">Mängu nimi:</label>
+      <input type="text" id="gameName" placeholder="Sisesta mängu nimi">
+      <br><br>
+      <!-- Tänased tiimid – lisatakse sisestusväljadega; vahe mängu nime ja esimese tiimi vahel on suurem -->
+      <h3>Tänased tiimid:</h3>
+      <div id="teamList">
+        <!-- Tiimiread genereeritakse JS-is (rea alguses võib olla ka nummerdamine) -->
+      </div>
+      <button id="btnAddTeam">+</button>
+      <br><br>
+      <!-- Küsimuste arvu sisestus ja voorude küsimus (vahe küsitluse osade vahel pisut suurem) -->
+      <label for="questionCount">Küsimuste arv:</label>
+      <input type="number" id="questionCount" value="10" min="1">
+      <br>
+      <!-- "Kas mäng on voorudena?" – kui jah, küsitakse mitu vooru (valikuna 2,3,4,5) -->
+      <label>Kas mäng on voorudena?</label>
+      <input type="radio" name="roundOption" id="roundNo" value="0" checked> Ei
+      <input type="radio" name="roundOption" id="roundYes" value="1"> Jah
+      <br>
+      <div id="roundOptions" style="display: none;">
+        <label>Mitu vooru:</label>
+        <select id="numRounds">
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+      <br>
+      <!-- Varasemad mängud (liigutatud "Mitu vooru" alla) -->
+      <label for="prevGamesSelect">Varasemad mängud:</label>
+      <select id="prevGamesSelect">
+        <!-- Valikud täidetakse JS-is -->
+      </select>
+      <br><br>
+      <button id="btnStartGame">Alusta mängu</button>
+      <button id="btnBackFromSettings">Tagasi</button>
+      
+      <!-- Parempoolne aken: "Tänased tiimid" (ainult kasutaja poolt lisatud tiimid) -->
+      <div id="previousTeams">
+        <h3>Tänased tiimid</h3>
+        <ul id="prevTeamsList">
+          <!-- Tiimid lisatakse JS-i abil -->
+        </ul>
+      </div>
+    </div>
+    
+    <!-- PUNKTIDE SISIESTAMINE -->
+    <div id="pointsView" style="display: none;">
+      <div class="navBar">
+        <div class="navLeft">
+          <!-- Ülemine navibaari pealkiri (tekst "Voorud" või "Küsimused") ja navinupud -->
+          <span id="navTitle"></span>
+          <div id="roundNav">
+            <!-- Voorunupud (round-based) genereeritakse JS-is -->
+          </div>
+        </div>
+        <div class="navRight">
+          <button id="btnBackToPoints">Tagasi punktide sisestamisse</button>
+          <button id="btnShowResults">Näita tulemusi</button>
+        </div>
+      </div>
+      <h2>Punktide sisestamine</h2>
+      <div id="pointsContent">
+        <!-- Punktide sisestamise tabel genereeritakse JS-is -->
+      </div>
+      <div id="navButtons" class="inlineNav">
+        <!-- Allosas navinupud (vasakule "Voor nr" või "Küsimus", paremale vastav nupp) -->
+      </div>
+      <div class="bottomNav">
+        <button id="btnBackToSettings">
+          <span class="gear">⚙️</span> Tagasi seadistustesse
+        </button>
+      </div>
+    </div>
+    
+    <!-- TULEMUSED -->
+    <div id="resultsView" style="display: none;">
+      <h2>Tulemused</h2>
+      <div class="topRight">
+        <button id="btnBackToPointsResults">Tagasi punktide sisestamisse</button>
+      </div>
+      <table id="resultsTable">
+        <thead>
+          <tr>
+            <!-- Päised genereeritakse JS-is: "Koht", "Tiim", "Punktid" ja voorunumbrid (rooma) -->
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Tulemuste tabeli sisu genereeritakse JS-is -->
+        </tbody>
+      </table>
+    </div>
+    
+    <!-- Nupp "Salvesta mäng" (salvestab mängu andmed varasemate mängude nimekirja) -->
+    <div id="saveGameContainer">
+      <button id="btnSaveGame">Salvesta mäng</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
