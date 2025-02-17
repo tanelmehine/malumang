@@ -14,45 +14,12 @@
       :root {
         --primary-color: #f96635;
         --primary-hover: #f9a822;
-        --background-color: #faecb6;
+        --background-color: #303030;
         --secondary-color: #93d3ae;
         --active-color: #007bff;
         --tertiary-color: #2bbaa5;
         --text-color: #333333;
         --score-default: #cccccc;
-      }
-      /* Eemaldame vaikimisi nimekirja märgised */
-      #ongoingGamesList,
-      #finishedGamesList {
-        list-style: none;
-        padding-left: 0;
-        margin: 0;
-      }
-      /* Spinnerite eemaldamine number sisestusväljadelt */
-      input[type="number"]::-webkit-inner-spin-button,
-      input[type="number"]::-webkit-outer-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-      }
-      input[type="number"] {
-        -moz-appearance: textfield;
-      }
-      /* Klass veergude minimeerimiseks */
-      th.minimize,
-      td.minimize {
-        padding: 4px 6px;
-        white-space: nowrap;
-        text-align: center;
-      }
-      /* Küsimuste veergude paigutus – kasutame maximum-content laiust */
-      th.round-question,
-      td.round-question {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        flex-wrap: nowrap;
-        white-space: nowrap;
-        width: max-content;
       }
       /* Üldised stiilid */
       body {
@@ -74,7 +41,6 @@
       .active {
         display: block;
       }
-      /* Nupud ja sisendväljad – üldine stiil */
       .button {
         padding: 10px 20px;
         margin: 5px;
@@ -90,6 +56,126 @@
         background-color: var(--primary-hover);
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
       }
+      /* Esileht (homeView) */
+      #homeView h1 {
+        text-align: center;
+      }
+      #newGameButton {
+        padding: 10px 20px;
+        font-size: 1em;
+        background-color: #FF6333;
+      }
+      #homeView .spacer {
+        height: 40px;
+      }
+      #homeView h2 {
+        text-align: center;
+        margin: 10px 0;
+      }
+      /* Suurem vahe pooleliolevate mängude loetelu ja "Varasemad mängud" pealkirja vahel */
+      #ongoingGamesList + h2 {
+        margin-top: 40px;
+      }
+      #ongoingGamesList,
+      #finishedGamesList {
+        list-style: none;
+        padding: 0;
+        margin: 0 auto;
+        text-align: left;
+        max-width: 400px;
+      }
+      .game-item {
+        margin: 5px 0;
+      }
+      .game-item strong {
+        font-weight: bold;
+      }
+      /* Muudetud "x" nuppude stiil avalehel ja koostamise lehel – väiksemad punased nupud */
+      .delete-game-btn,
+      .remove-saved-btn {
+        background-color: #BE1E1C;
+        border: none;
+        color: #fff;
+        padding: 1px 3px;
+        margin-left: 10px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 0.7em;
+      }
+      /* Mängu koostamise leht (createGameView) */
+      /* Eemaldatud absolute positsioneerimine #backToHomeButton */
+      #backToHomeButton {
+        /* Nupp kasutab sama .button stiili nagu teised */
+      }
+      #participatingTeamsSection {
+        margin-top: 40px;
+        text-align: center;
+        margin-bottom: 15px;
+      }
+      #participatingTeamsSection h3 {
+        margin-bottom: 10px;
+      }
+      /* Salvestatud grupid pealkiri bolditud */
+      #savedGroupsHeader {
+        margin-top: 40px;
+        text-align: center;
+        font-size: 1.3em;
+        font-weight: bold;
+      }
+      #groupSection {
+        text-align: center;
+        margin-bottom: 15px;
+      }
+      .group-item {
+        border: 1px solid #ccc;
+        padding: 8px;
+        margin: 10px auto;
+        border-radius: 8px;
+        text-align: center;
+        max-width: 400px;
+      }
+      .group-item-header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        cursor: pointer;
+        margin-bottom: 5px;
+      }
+      .group-item-header strong {
+        font-weight: bold;
+      }
+      .group-item-header .delete-group-btn {
+        background-color: #BE1E1C;
+        border: none;
+        color: #fff;
+        padding: 2px 6px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 0.8em;
+      }
+      .group-item-header .add-group-to-game-btn {
+        background-color: #FF6333;
+        border: none;
+        color: #fff;
+        padding: 5px 10px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 0.8em;
+      }
+      .group-teams {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 5px;
+      }
+      .group-team {
+        padding: 2px 4px;
+      }
+      .group-add-team {
+        margin-top: 5px;
+      }
       .input-field {
         padding: 10px;
         margin: 5px 0;
@@ -103,12 +189,12 @@
         width: 200px;
         margin: 0 auto;
         text-align: center;
-        font-size: 0.9rem;
+        font-size: 0.9em;
         border-radius: 20px;
       }
       .section-title {
         text-align: center;
-        font-size: 1.2rem;
+        font-size: 1.2em;
         margin-bottom: 5px;
       }
       .game-type-button {
@@ -128,7 +214,6 @@
         color: #fff;
         font-weight: bold;
       }
-      /* Tiimide loetelu stiilid */
       #teamsListContainer {
         display: grid;
         gap: 10px;
@@ -151,24 +236,24 @@
         justify-content: center;
         gap: 10px;
         cursor: default;
-        width: auto;
         margin: 0 auto;
         box-sizing: border-box;
       }
+      /* Ühtlustatud "x" nuppude stiil meeskondade eemaldamiseks ka koostamise lehel */
       .remove-saved-btn {
-        background-color: transparent;
-        color: red;
+        background-color: #BE1E1C;
         border: none;
-        font-weight: bold;
+        color: #fff;
+        padding: 1px 3px;
+        border-radius: 4px;
         cursor: pointer;
-        font-size: 1rem;
+        font-size: 0.7em;
       }
-      /* Punktide sisestamise nupud – uued värvid */
       .score-btn {
         flex: 1 1 auto;
         margin: 1px;
         padding: 5px 12px;
-        font-size: 1.44rem;
+        font-size: 1.44em;
         background-color: var(--score-default);
         color: #fff;
         border: none;
@@ -177,15 +262,14 @@
         transition: background-color 0.2s ease;
       }
       .score-btn.red {
-        background-color: #BE1E1C; /* punane */
+        background-color: #BE1E1C;
       }
       .score-btn.orange {
-        background-color: #FFB400; /* oranz */
+        background-color: #FFB400;
       }
       .score-btn.green {
-        background-color: #636500; /* roheline */
+        background-color: #636500;
       }
-      /* Custom input – kitsam tekstikast, 2ch laiune */
       .custom-input {
         padding: 4px;
         font-size: 1rem;
@@ -223,7 +307,6 @@
         justify-content: flex-end;
         margin-bottom: 15px;
       }
-      /* Navigatsiooninuppude konteiner – horisontaalne */
       #questionNavigation {
         display: flex;
         flex-direction: row;
@@ -231,9 +314,9 @@
         margin-bottom: 15px;
       }
       #questionNavigation button {
-        font-size: 1rem;
-        width: 3rem;
-        height: 3rem;
+        font-size: 1em;
+        width: 3em;
+        height: 3em;
         border: none;
         border-radius: 4px;
         background-color: var(--secondary-color);
@@ -248,15 +331,13 @@
       #questionNavigation button:hover {
         background-color: var(--primary-hover);
       }
-      /* Aktiivse nupu stiil – suurendatud */
       #questionNavigation button.active-option {
-        font-size: 1.25rem;
+        font-size: 1.25em;
         background-color: var(--active-color);
         font-weight: bold;
-        width: 3.5rem;
-        height: 3.5rem;
+        width: 3.5em;
+        height: 3.5em;
       }
-      /* "Läbitud" nupu stiil – hall */
       #questionNavigation button.completed {
         background-color: #a9a9a9;
       }
@@ -278,12 +359,11 @@
         font-weight: bold;
       }
       th {
-        /* Tulemuste lehe päis (mitte round summary) taustavärv – heleroheline (#B29B27) */
         background-color: #B29B27;
         color: #fff;
       }
       table td {
-        font-size: calc(0.95rem + 2px); /* fondi suurus tõstetud 2px võrra */
+        font-size: calc(0.95em + 2px);
       }
       .score-green {
         color: var(--tertiary-color);
@@ -294,38 +374,25 @@
       .score-orange {
         color: var(--primary-hover);
       }
-      /* Fikseeritud laius küsimuste lahtritele resultsView's */
       .question-cell {
         width: 40px;
       }
-      /* Lõpeta mängu nupu konteineri joondus paremale */
       #finishGameContainer {
         text-align: right;
       }
-
       /* Score Entry View Customizations */
-      /* 1. Eelmine ja järgmine küsimus/voor nuppude värviks heleroheline (#B29B27) */
+      /* Muudetud Eelmine küsimus ja Järgmine küsimus nupud värviks #636500 */
       #scoreEntryView #prevQuestionButton,
       #scoreEntryView #nextQuestionButton {
-        background-color: #B29B27;
+        background-color: #636500;
       }
-
-      /* 2. Nupud "Mängu muutma" ja "Tulemused" roosaks (#FF6333) */
       #scoreEntryView #editGameButton,
       #scoreEntryView #resultsButton {
         background-color: #FF6333;
       }
-
-      /* 3. Score Entry view tabeli päiseriba roosaks (#FF6333) */
       #scoreEntryView #scoreTable thead th {
         background-color: #FF6333;
       }
-
-      /* 4. Ülemise navigeerimisnupu rea värvid:
-         - Vastamata küsimused: oranž (#FFB400)
-         - Aktiivne küsimus: tumeroheline (#636500)
-         - Vastatud küsimused: hall (#a9a9a9)
-      */
       #scoreEntryView #questionNavigation button:not(.completed):not(.active-option) {
         background-color: #FFB400;
         color: #000;
@@ -336,21 +403,52 @@
       #scoreEntryView #questionNavigation button.completed {
         background-color: #a9a9a9;
       }
+      
+      /* Tulemuste leht (ResultsView) – algne stiil jääb muutmata, renderResults() funktsioon teeb ainult sisu loomise */
+      #resultsView h2 {
+        text-align: center;
+      }
+      #resultsView table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        background-color: #fff;
+      }
+      #resultsView table,
+      #resultsView th,
+      #resultsView td {
+        border: 1px solid #ddd;
+      }
+      #resultsView th,
+      #resultsView td {
+        padding: 10px;
+        text-align: center;
+        font-weight: bold;
+      }
+      #resultsView th {
+        background-color: #B29B27;
+        color: #fff;
+      }
+      #resultsView table td {
+        font-size: calc(0.95em + 2px);
+      }
     </style>
   </head>
   <body>
-    <!-- 1. Peamenüü (Avaleht) -->
+    <!-- Esileht -->
     <div id="homeView" class="view active">
-      <h1 style="text-align: center;">Mälumängu äpp</h1>
-      <div style="text-align: center;">
+      <h1>Mälumängu äpp</h1>
+      <div style="margin-bottom: 30px; text-align: center;">
         <button class="button" id="newGameButton">Loo uus mäng</button>
       </div>
-      <h2 style="text-align: center;">Käimasolevad mängud</h2>
+      <div class="spacer"></div>
+      <h2>Pooleliolevad mängud</h2>
       <ul id="ongoingGamesList"></ul>
-      <h2 style="text-align: center;">Varasemad mängud</h2>
+      <h2>Varasemad mängud</h2>
       <ul id="finishedGamesList"></ul>
     </div>
-    <!-- 2. Mängu koostamise leht -->
+    
+    <!-- Mängu koostamise leht -->
     <div id="createGameView" class="view">
       <h2 style="text-align: center;">Mängu koostamine</h2>
       <h3 class="section-title">Mängu nimi</h3>
@@ -366,14 +464,12 @@
         <input type="number" id="numQuestions" class="input-field small-input" placeholder="Sisesta küsimuste arv" value="25" />
       </div>
       <div style="text-align: center; margin-bottom: 15px;">
-        <label style="font-size: 1rem;">Mängu tüüp:</label>
-        <input type="radio" name="gameMode" id="normalMode" value="normal" checked />
-        Tavamäng
-        <input type="radio" name="gameMode" id="roundsMode" value="rounds" />
-        Voorudega mäng
+        <label>Mängu tüüp:</label>
+        <input type="radio" name="gameMode" id="normalMode" value="normal" checked /> Tavamäng
+        <input type="radio" name="gameMode" id="roundsMode" value="rounds" /> Voorudega mäng
       </div>
       <div id="roundOptions" style="display: none; text-align: center; margin-bottom: 15px;">
-        <label for="numRounds" style="font-size: 1rem;">Voorude arv:</label>
+        <label for="numRounds">Voorude arv:</label>
         <select id="numRounds" class="input-field small-input" style="width: auto; display: inline-block;">
           <option value="2">2</option>
           <option value="3">3</option>
@@ -381,16 +477,34 @@
           <option value="5">5</option>
         </select>
       </div>
-      <div id="teamsListContainer">
-        <ul id="teamsList" class="team-list"></ul>
+      <div style="margin-top:40px;"></div>
+      <div id="participatingTeamsSection" style="text-align: center; margin-bottom: 15px;">
+        <h3>Mängus osalevad tiimid</h3>
+        <div style="margin-bottom: 10px;">
+          <input type="text" id="teamName" class="input-field small-input" placeholder="Tiimi nimi" />
+          <button class="button" id="addTeamButton">Lisa uus tiim</button>
+        </div>
+        <div id="teamsListContainer">
+          <ul id="teamsList" class="team-list"></ul>
+        </div>
       </div>
-      <div style="text-align: center; margin-bottom: 15px;">
-        <input type="text" id="teamName" class="input-field small-input" placeholder="Tiimi nimi" />
-        <button class="button" id="addTeamButton">Lisa uus tiim</button>
+      <div id="savedGroupsHeader">Salvestatud grupid</div>
+      <div id="groupSection" style="text-align: center;">
+        <div id="savedGroupsContainer" style="margin-bottom: 15px;"></div>
+        <button class="button" id="newGroupButton">Loo uus grupp</button>
+        <div id="groupInputContainer" style="display: none; margin-top: 10px;">
+          <input type="text" id="groupNameInput" class="input-field small-input" placeholder="Sisesta grupi nimi" />
+          <button class="button" id="saveGroupButton">Salvesta grupp</button>
+        </div>
+        <div id="groupTeamsSection" style="display: none; margin-top: 10px;">
+          <input type="text" id="groupTeamInput" class="input-field small-input" placeholder="Sisesta tiimi nimi" />
+          <button class="button" id="addGroupTeamButton">Lisa tiim gruppi</button>
+          <ul id="groupTeamList" style="list-style: none; padding: 0; margin-top: 10px; text-align: center;"></ul>
+        </div>
       </div>
       <div class="bottom-bar">
         <div class="bottom-left">
-          <button class="button" id="backToHomeButton">Peamenüüsse</button>
+          <button class="button" id="backToHomeButton">Tagasi</button>
         </div>
         <div class="bottom-right">
           <button class="button" id="startGameButton">Alusta uut mängu</button>
@@ -398,18 +512,19 @@
         </div>
       </div>
     </div>
-    <!-- 3. Punktide sisestamise leht -->
+    
+    <!-- Punktide sisestamise leht (ScoreEntryView) – Jääb muutmata -->
     <div id="scoreEntryView" class="view">
       <div class="top-bar">
         <button class="button" id="resultsButton">Tulemused</button>
       </div>
-      <h2>Punktide sisestamine</h2>
+      <h2 style="text-align: center;">Punktide sisestamine</h2>
       <div id="questionNavigation"></div>
       <table id="scoreTable">
         <thead>
-          <tr><!-- Päis genereeritakse JavaScriptiga --></tr>
+          <tr><!-- Päis genereeritakse ScoreEntryView jaoks JavaScriptiga --></tr>
         </thead>
-        <tbody><!-- Sisu genereeritakse JavaScriptiga --></tbody>
+        <tbody><!-- Sisu genereeritakse ScoreEntryView jaoks JavaScriptiga --></tbody>
       </table>
       <div class="bottom-bar">
         <div class="game-edit">
@@ -421,23 +536,22 @@
         </div>
       </div>
     </div>
-    <!-- 4. Tulemuste leht -->
+    
+    <!-- Tulemuste leht (ResultsView) – Eraldi render loogika -->
     <div id="resultsView" class="view">
-      <h2>Tulemused</h2>
+      <h2 style="text-align: center;">Tulemused</h2>
       <table id="resultsTable">
         <thead>
-          <tr><!-- Päis genereeritakse JavaScriptiga --></tr>
+          <tr><!-- Päis genereeritakse ResultsView jaoks JavaScriptiga --></tr>
         </thead>
-        <tbody><!-- Sisu genereeritakse JavaScriptiga --></tbody>
+        <tbody><!-- Sisu genereeritakse ResultsView jaoks JavaScriptiga --></tbody>
       </table>
-      <!-- Alumised nupud: ühes horisontaalses reas, vasakul "Tagasi punkte sisestama" (heleroheline) ja paremal "Lõpeta mäng" (roosa) -->
       <div id="resultsButtons" style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px; width: 100%;">
-        <!-- Vasak nupp: Tagasi punkte sisestama -->
         <button class="button" id="scoreEntryButton" style="background-color: #B29B27;">Tagasi punkte sisestama</button>
-        <!-- Paremal nupp: Lõpeta mäng -->
         <button class="button" id="finishGameButton" style="background-color: #FF6333;">Lõpeta mäng</button>
       </div>
     </div>
+    
     <script>
       // Globaalsed muutujad
       let teams = [];
@@ -450,69 +564,87 @@
       let finishedGames = [];
       let selectedGameMode = "normal";
       
-      // Globaalne objekt resultsView jaoks
+      // Grupihaldus: iga grupp on objekt kujul { groupName, teams: [] }
+      let groups = [];
+      
+      // Globaalne objekt ResultsView jaoks
       let resultsHiddenRounds = {};
-
-      /* === Andmete salvestamise ja laadimise funktsioonid (localStorage) === */
+      
+      /* Andmete salvestamise ja laadimise funktsioonid (localStorage) */
       function saveData() {
         localStorage.setItem("ongoingGames", JSON.stringify(ongoingGames));
         localStorage.setItem("finishedGames", JSON.stringify(finishedGames));
       }
-
       function loadData() {
         const ongoing = localStorage.getItem("ongoingGames");
         const finished = localStorage.getItem("finishedGames");
         if (ongoing) { ongoingGames = JSON.parse(ongoing); }
         if (finished) { finishedGames = JSON.parse(finished); }
       }
-      /* ===================================================================== */
-
-      // Abi funktsioon: number roomaniseerimiseks
+      
       function romanize(num) {
         const roman = ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"];
         return roman[num] || num;
       }
-
-      // Helper: punktide formaatimine
       function formatScore(score) {
         if (score === undefined) return "";
         return Number.isInteger(score) ? score.toString() : score.toFixed(1);
       }
-
+      
       function showView(viewId) {
-        document.querySelectorAll(".view").forEach((v) => v.classList.remove("active"));
+        document.querySelectorAll(".view").forEach(v => v.classList.remove("active"));
         document.getElementById(viewId).classList.add("active");
         if (viewId === "homeView") updateHomeGameLists();
         if (viewId === "scoreEntryView") { renderNavigation(); renderTable(); }
         if (viewId === "resultsView") renderResults();
       }
-
       function backToHome() { showView("homeView"); }
-
+      
       function updateHomeGameLists() {
         const ongoingUl = document.getElementById("ongoingGamesList");
         ongoingUl.innerHTML = "";
+        ongoingUl.style.textAlign = "center";
         ongoingGames.forEach((game, index) => {
           const li = document.createElement("li");
-          li.textContent = `${game.name} - ${game.host} - ${game.date}`;
-          li.style.cursor = "pointer";
+          li.classList.add("game-item");
+          li.innerHTML = `<strong>${game.name}</strong> - ${game.host} - ${game.date}`;
+          const delBtn = document.createElement("button");
+          delBtn.textContent = "x";
+          delBtn.className = "delete-game-btn";
+          delBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            ongoingGames.splice(index, 1);
+            saveData();
+            updateHomeGameLists();
+          });
+          li.appendChild(delBtn);
           li.addEventListener("click", () => { selectOngoingGame(index); });
           ongoingUl.appendChild(li);
         });
         const finishedUl = document.getElementById("finishedGamesList");
         finishedUl.innerHTML = "";
+        finishedUl.style.textAlign = "center";
         finishedGames.forEach((game, index) => {
           const li = document.createElement("li");
-          li.textContent = `${game.name} - ${game.host} - ${game.date}`;
-          li.style.cursor = "pointer";
+          li.classList.add("game-item");
+          li.innerHTML = `<strong>${game.name}</strong> - ${game.host} - ${game.date}`;
+          const delBtn = document.createElement("button");
+          delBtn.textContent = "x";
+          delBtn.className = "delete-game-btn";
+          delBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            finishedGames.splice(index, 1);
+            saveData();
+            updateHomeGameLists();
+          });
+          li.appendChild(delBtn);
           li.addEventListener("click", () => { selectFinishedGame(index); });
           finishedUl.appendChild(li);
         });
       }
-
       function selectOngoingGame(index) { currentGame = ongoingGames[index]; editGame(); }
       function selectFinishedGame(index) { currentGame = finishedGames[index]; showView("resultsView"); }
-
+      
       function addTeam() {
         const teamInput = document.getElementById("teamName");
         const teamName = teamInput.value.trim();
@@ -530,29 +662,28 @@
           }
         }
       }
-
       function updateTeamsList() {
         const container = document.getElementById("teamsListContainer");
         const ul = document.getElementById("teamsList");
         ul.innerHTML = "";
         teams.forEach((team, index) => {
           const li = document.createElement("li");
-          li.textContent = (index + 1) + ". " + team;
-          const removeBtn = document.createElement("button");
-          removeBtn.textContent = "x";
-          removeBtn.className = "remove-saved-btn";
-          removeBtn.addEventListener("click", (e) => { e.stopPropagation(); teams.splice(index, 1); updateTeamsList(); saveData(); });
-          li.appendChild(removeBtn);
+          li.innerHTML = (index + 1) + ". " + team + ` <button class="remove-saved-btn">x</button>`;
+          li.querySelector("button").addEventListener("click", (e) => {
+            e.stopPropagation();
+            teams.splice(index, 1);
+            updateTeamsList();
+          });
           ul.appendChild(li);
         });
         container.style.gridTemplateColumns = "1fr";
       }
-
+      
       function toggleRounds(show) {
         const roundOptions = document.getElementById("roundOptions");
         roundOptions.style.display = show ? "block" : "none";
       }
-
+      
       function startGame() {
         const gameName = document.getElementById("gameName").value.trim();
         const hostName = document.getElementById("hostName").value.trim();
@@ -564,7 +695,7 @@
         currentGame = {
           name: gameName,
           host: hostName,
-          teams: teams.map((name) => ({ name: name, scores: {} })),
+          teams: teams.map(name => ({ name: name, scores: {} })),
           numQuestions: numQuestions,
           rounds: isRoundsMode,
           numRounds: isRoundsMode ? numRounds : 0,
@@ -573,23 +704,20 @@
         totalQuestions = numQuestions;
         currentQuestion = 0;
         currentRound = 0;
-        currentGame.teams.forEach((team) => { for (let i = 0; i < totalQuestions; i++) { team.scores[i] = undefined; } });
+        currentGame.teams.forEach(team => { for (let i = 0; i < totalQuestions; i++) { team.scores[i] = undefined; } });
         if (currentGame.rounds) { for (let r = 0; r < currentGame.numRounds; r++) { roundVisibility[r] = true; } }
         ongoingGames.push(currentGame);
         saveData();
         showView("scoreEntryView");
       }
-
-      function saveGame() { }
       function continueGame() {
         if (!currentGame) { alert("Pole poolelijäänud mängu, mida jätkata."); return; }
         totalQuestions = currentGame.numQuestions;
         showView("scoreEntryView");
       }
-
       function editGame() {
         if (!currentGame) { alert("Aktiivset mängu pole, mida muuta."); return; }
-        teams = currentGame.teams.map((t) => t.name);
+        teams = currentGame.teams.map(t => t.name);
         updateTeamsList();
         document.getElementById("gameName").value = currentGame.name;
         document.getElementById("hostName").value = currentGame.host || "";
@@ -606,14 +734,14 @@
         document.getElementById("continueGameButton").style.display = "inline-block";
         showView("createGameView");
       }
-
+      
       function createCustomInput(teamIndex, questionIndex) {
         const input = document.createElement("input");
         input.type = "text";
         input.step = "0.01";
         input.placeholder = "";
         input.className = "custom-input";
-        input.addEventListener("keydown", function (e) {
+        input.addEventListener("keydown", function(e) {
           if (e.key === "Enter") {
             let inputVal = input.value.replace(/,/g, ".");
             let val = parseFloat(inputVal);
@@ -627,7 +755,7 @@
         });
         return input;
       }
-
+      
       function renderNavigation() {
         const nav = document.getElementById("questionNavigation");
         nav.innerHTML = "";
@@ -648,7 +776,7 @@
             let startIndex;
             if (r < extra) { startIndex = r * (base + 1); }
             else { startIndex = extra * (base + 1) + (r - extra) * base; }
-            let roundCompleted = currentGame.teams.every((team) => {
+            let roundCompleted = currentGame.teams.every(team => {
               for (let i = startIndex; i < startIndex + questionsThisRound; i++) {
                 if (team.scores[i] === undefined) return false;
               }
@@ -664,7 +792,7 @@
             btn.textContent = i + 1;
             btn.id = "questionNavBtn" + i;
             btn.addEventListener("click", () => { currentQuestion = i; highlightNavigation(); renderTable(); });
-            if (currentGame.teams.every((team) => team.scores[i] !== undefined)) { btn.classList.add("completed"); }
+            if (currentGame.teams.every(team => team.scores[i] !== undefined)) { btn.classList.add("completed"); }
             nav.appendChild(btn);
           }
         }
@@ -677,7 +805,7 @@
         }
         highlightNavigation();
       }
-
+      
       function highlightNavigation() {
         if (currentGame.rounds) {
           for (let r = 0; r < currentGame.numRounds; r++) {
@@ -697,15 +825,14 @@
           }
         }
       }
-
-      // renderTable() – Score Entry View
+      
+      // renderTable() – ScoreEntryView jaoks (ei muutu)
       function renderTable() {
         const tbody = document.querySelector("#scoreTable tbody");
         tbody.innerHTML = "";
         const theadRow = document.querySelector("#scoreTable thead tr");
         theadRow.innerHTML = "";
         if (currentGame.rounds) {
-          // Voorumängu režiim
           let base = Math.floor(totalQuestions / currentGame.numRounds);
           let extra = totalQuestions % currentGame.numRounds;
           let questionsThisRound = currentRound < extra ? base + 1 : base;
@@ -718,10 +845,15 @@
           th.style.width = "40px";
           theadRow.appendChild(th);
           th = document.createElement("th");
-          // Tiimi nimi – siin kontrollime, kas antud voorus on juba mõni punkt sisestatud
           th.textContent = "Tiim";
           th.classList.add("minimize");
           th.style.width = "160px";
+          // Kui meeskonnal on vähemalt ühe küsimuse eest punkt, muuta nimi halliks
+          currentGame.teams.forEach((team, teamIndex) => {
+            if (teamHasAnyScore(team, startIndex, questionsThisRound)) {
+              th.style.color = "gray";
+            }
+          });
           theadRow.appendChild(th);
           th = document.createElement("th");
           th.textContent = "Punktid";
@@ -737,9 +869,15 @@
           }
           th = document.createElement("th");
           th.textContent = romanize(currentRound + 1) + " voor";
-          th.classList.add("round-total", "minimize");
+          th.style.width = "30px";
           th.style.fontWeight = "bold";
-          th.style.width = "40px";
+          th.style.backgroundColor = "#FF6333";
+          th.style.cursor = "pointer";
+          th.setAttribute("data-round-summary", currentRound);
+          th.addEventListener("click", function() {
+            resultsHiddenRounds[currentRound] = !resultsHiddenRounds[currentRound];
+            updateResultsRoundVisibility(currentRound);
+          });
           theadRow.appendChild(th);
           const rankings = calculateRankings();
           currentGame.teams.forEach((team, teamIndex) => {
@@ -749,22 +887,10 @@
             td.classList.add("minimize");
             td.style.width = "40px";
             tr.appendChild(td);
-            // Muudetud tiimi nime lahter – siin lisame kontrolli
             td = document.createElement("td");
             td.textContent = team.name;
             td.classList.add("minimize");
             td.style.width = "160px";
-            // Kontrollime, kas antud vooru küsimustele on mõni punkt sisestatud
-            let teamHasPoint = false;
-            for (let i = startIndex; i < startIndex + questionsThisRound; i++) {
-              if (team.scores[i] !== undefined) {
-                teamHasPoint = true;
-                break;
-              }
-            }
-            if (teamHasPoint) {
-              td.style.color = "silver";
-            }
             tr.appendChild(td);
             td = document.createElement("td");
             td.textContent = getTotalScore(team);
@@ -776,13 +902,12 @@
               td = document.createElement("td");
               td.classList.add("minimize", "question-cell");
               td.style.width = "120px";
-              [0, 1, 2].forEach((val) => {
+              [1, 2].forEach(val => {
                 const btn = document.createElement("button");
                 btn.textContent = val;
                 btn.classList.add("score-btn");
                 if (team.scores[globalIndex] !== undefined && parseFloat(team.scores[globalIndex]) === val) {
-                  if (val === 0) btn.classList.add("red");
-                  else if (val === 1) btn.classList.add("orange");
+                  if (val === 1) btn.classList.add("orange");
                   else if (val === 2) btn.classList.add("green");
                 }
                 btn.addEventListener("click", () => {
@@ -796,7 +921,7 @@
               const customContainer = document.createElement("span");
               customContainer.style.marginLeft = "4px";
               const currentVal = team.scores[globalIndex];
-              if (currentVal !== undefined && ![0, 1, 2].includes(parseFloat(currentVal))) {
+              if (currentVal !== undefined && ![1, 2].includes(parseFloat(currentVal))) {
                 const boldSpan = document.createElement("span");
                 boldSpan.textContent = formatScore(currentVal);
                 boldSpan.style.fontWeight = "bold";
@@ -823,41 +948,43 @@
             td = document.createElement("td");
             td.textContent = formatScore(roundSum);
             td.classList.add("round-total", "minimize");
+            td.style.backgroundColor = "white";
+            td.style.color = "#FF6333";
             td.style.fontWeight = "bold";
             td.style.width = "40px";
             tr.appendChild(td);
             tbody.appendChild(tr);
           });
         } else {
-          // Tavamängu režiim – punktide sisestamise leht
           let th = document.createElement("th");
           th.textContent = "Koht";
           th.classList.add("minimize");
           th.style.width = "40px";
           theadRow.appendChild(th);
-          
           th = document.createElement("th");
           th.textContent = "Tiim";
           th.classList.add("minimize");
           th.style.width = "160px";
+          // Muuda tiimi nimi halliks, kui antud küsimuse eest punkt on juba antud
+          currentGame.teams.forEach((team, teamIndex) => {
+            if (team.scores[currentQuestion] !== undefined) {
+              th.style.color = "gray";
+            }
+          });
           theadRow.appendChild(th);
-          
           th = document.createElement("th");
           th.textContent = "Küs. " + (currentQuestion + 1);
           th.id = "scoreInputHeader";
           th.style.width = "120px";
           theadRow.appendChild(th);
-          
           th = document.createElement("th");
           th.textContent = "Punktid";
           th.classList.add("minimize");
           th.style.width = "50px";
           theadRow.appendChild(th);
-          
           const rankings = calculateRankings();
           currentGame.teams.forEach((team, teamIndex) => {
             const tr = document.createElement("tr");
-            
             let td = document.createElement("td");
             td.textContent = rankings[teamIndex];
             td.classList.add("minimize");
@@ -867,23 +994,21 @@
             td = document.createElement("td");
             let teamName = team.name;
             if (teamName.length > 20) { teamName = teamName.substring(0, 17) + "..."; }
-            td.textContent = teamName;
-            td.classList.add("minimize");
+            td.innerHTML = `<strong>${teamName}</strong>`;
             td.style.width = "160px";
-            // Tavamängu režiimis – kui antud küsimuse vastus on sisestatud, muudame nime halliks
+            // Kui sellele küsimusele punkt on juba antud, muuta tiimi nimi halliks
             if (team.scores[currentQuestion] !== undefined) {
-              td.style.color = "silver";
+              td.style.color = "gray";
             }
             tr.appendChild(td);
             
             td = document.createElement("td");
-            [0, 1, 2].forEach((val) => {
+            [1, 2].forEach(val => {
               const btn = document.createElement("button");
               btn.textContent = val;
               btn.classList.add("score-btn");
               if (team.scores[currentQuestion] !== undefined && parseFloat(team.scores[currentQuestion]) === val) {
-                if (val === 0) btn.classList.add("red");
-                else if (val === 1) btn.classList.add("orange");
+                if (val === 1) btn.classList.add("orange");
                 else if (val === 2) btn.classList.add("green");
               }
               btn.addEventListener("click", () => {
@@ -896,7 +1021,7 @@
             });
             const customContainer = document.createElement("span");
             customContainer.style.marginLeft = "4px";
-            if (team.scores[currentQuestion] !== undefined && ![0, 1, 2].includes(parseFloat(team.scores[currentQuestion]))) {
+            if (team.scores[currentQuestion] !== undefined && ![1, 2].includes(parseFloat(team.scores[currentQuestion]))) {
               const boldSpan = document.createElement("span");
               boldSpan.textContent = formatScore(team.scores[currentQuestion]);
               boldSpan.style.fontWeight = "bold";
@@ -914,18 +1039,22 @@
             }
             td.appendChild(customContainer);
             tr.appendChild(td);
-            
             td = document.createElement("td");
             td.textContent = formatScore(getTotalScore(team));
             td.style.width = "50px";
             tr.appendChild(td);
-            
             tbody.appendChild(tr);
           });
         }
       }
-
-      // Uus abifunktsioon resultsView jaoks – värskendab lahtrite nähtavust
+      
+      function teamHasAnyScore(team, startIndex, count) {
+        for (let i = startIndex; i < startIndex + count; i++) {
+          if (team.scores[i] !== undefined) return true;
+        }
+        return false;
+      }
+      
       function updateResultsRoundVisibility(round) {
         const resultsTable = document.getElementById("resultsTable");
         const headerCells = resultsTable.querySelectorAll('th[data-round="' + round + '"]');
@@ -933,18 +1062,25 @@
         const bodyCells = resultsTable.querySelectorAll('td[data-round="' + round + '"]');
         bodyCells.forEach(cell => { cell.style.display = resultsHiddenRounds[round] ? "none" : "table-cell"; });
       }
-
-      // renderResults() – Results View
+      
+      function initResultsHiddenRounds() {
+        if (currentGame && currentGame.rounds) {
+          for (let r = 0; r < currentGame.numRounds; r++) {
+            if (typeof resultsHiddenRounds[r] === "undefined") {
+              resultsHiddenRounds[r] = true;
+            }
+          }
+        }
+      }
+      
+      // renderResults() – Eraldi loogika tavamängu ja voorumängu jaoks:
       function renderResults() {
         const resultsTable = document.getElementById("resultsTable");
         const theadRow = resultsTable.querySelector("thead tr");
         const tbody = resultsTable.querySelector("tbody");
         theadRow.innerHTML = "";
         tbody.innerHTML = "";
-        
-        // Sorteeri tiimid tulemuse järgi (suurimast väiksemaks)
         let sortedTeams = currentGame.teams.slice().sort((a, b) => getTotalScore(b) - getTotalScore(a));
-        // Arvuta rankingid sortedTeams jaoks
         let rankings = [];
         for (let i = 0; i < sortedTeams.length; ) {
           let startRank = i + 1;
@@ -956,31 +1092,27 @@
           for (let k = i; k < j; k++) { rankings[k] = rankLabel; }
           i = j;
         }
-        
         if (currentGame.rounds) {
+          // Voorumängu tulemuste esitamine – originaalne loogika
+          initResultsHiddenRounds();
           const numRounds = currentGame.numRounds;
           const base = Math.floor(totalQuestions / numRounds);
           const extra = totalQuestions % numRounds;
-          // Päiserida: "Koht", "Tiim", "Punktid" – taustavärvaks heleroheline (#B29B27)
           let th = document.createElement("th");
           th.textContent = "Koht";
           th.style.width = "40px";
           th.style.backgroundColor = "#B29B27";
           theadRow.appendChild(th);
-          
           th = document.createElement("th");
           th.textContent = "Tiim";
           th.style.width = "160px";
           th.style.backgroundColor = "#B29B27";
           theadRow.appendChild(th);
-          
           th = document.createElement("th");
           th.textContent = "Punktid";
           th.style.width = "50px";
           th.style.backgroundColor = "#B29B27";
           theadRow.appendChild(th);
-          
-          // For each round, lisame küsimuste veerud ja round summary lahtri
           for (let r = 0; r < numRounds; r++) {
             const numQ = r < extra ? base + 1 : base;
             let startIndex;
@@ -988,7 +1120,6 @@
             else { startIndex = extra * (base + 1) + (r - extra) * base; }
             for (let i = 0; i < numQ; i++) {
               th = document.createElement("th");
-              // Kuvame ainult numbrit (ilma "Tul"-eesliideta)
               th.textContent = startIndex + i + 1;
               th.style.width = "30px";
               th.style.fontWeight = "normal";
@@ -997,12 +1128,12 @@
               if (resultsHiddenRounds[r]) { th.style.display = "none"; }
               theadRow.appendChild(th);
             }
-            // Round summary lahter – taust roosa (#FF6333)
             th = document.createElement("th");
             th.textContent = romanize(r + 1);
             th.style.width = "30px";
             th.style.fontWeight = "bold";
             th.style.backgroundColor = "#FF6333";
+            th.style.cursor = "pointer";
             th.setAttribute("data-round-summary", r);
             th.addEventListener("click", function() {
               resultsHiddenRounds[r] = !resultsHiddenRounds[r];
@@ -1010,7 +1141,6 @@
             });
             theadRow.appendChild(th);
           }
-          // Renderi iga tiimi rida (kasutame sortedTeams ja rankings)
           sortedTeams.forEach((team, idx) => {
             const tr = document.createElement("tr");
             let td = document.createElement("td");
@@ -1041,20 +1171,24 @@
                 let score = team.scores[startIndex + i];
                 if (score !== undefined) {
                   let scoreValue = parseFloat(score);
-                  let boxColor;
-                  if (scoreValue === 0) { boxColor = "#BE1E1C"; }
-                  else if (scoreValue >= 0.1 && scoreValue < 2) { boxColor = "#FFB400"; }
-                  else if (scoreValue >= 2) { boxColor = "#636500"; }
-                  let span = document.createElement("span");
-                  span.textContent = formatScore(score);
-                  span.style.backgroundColor = boxColor;
-                  span.style.color = "white";
-                  span.style.fontWeight = "bold";
-                  // Suurendatud kast: padding 2px 8px (võrreldes varasemaga 2px 6px)
-                  span.style.padding = "2px 8px";
-                  span.style.borderRadius = "4px";
-                  span.style.display = "inline-block";
-                  td.appendChild(span);
+                  if (scoreValue === 0) {
+                    let span = document.createElement("span");
+                    span.textContent = formatScore(score);
+                    span.style.color = "black";
+                    span.style.fontWeight = "normal";
+                    td.appendChild(span);
+                  } else {
+                    let boxColor = scoreValue < 2 ? "#FFB400" : "#636500";
+                    let span = document.createElement("span");
+                    span.textContent = formatScore(score);
+                    span.style.backgroundColor = boxColor;
+                    span.style.color = "white";
+                    span.style.fontWeight = "bold";
+                    span.style.padding = "2px 8px";
+                    span.style.borderRadius = "4px";
+                    span.style.display = "inline-block";
+                    td.appendChild(span);
+                  }
                 } else {
                   td.textContent = "";
                 }
@@ -1068,66 +1202,63 @@
               }
               td.textContent = formatScore(roundSum);
               td.style.fontWeight = "bold";
-              td.style.backgroundColor = "#FF6333";
+              td.style.backgroundColor = "white";
+              td.style.color = "#FF6333";
               tr.appendChild(td);
             }
             tbody.appendChild(tr);
           });
         } else {
-          // Tavamängu režiim – tulemuste leht
+          // Tavamängu tulemuste tabel – uus loogika
           let th = document.createElement("th");
           th.textContent = "Koht";
+          th.classList.add("minimize");
           th.style.width = "40px";
-          th.style.backgroundColor = "#B29B27";
           theadRow.appendChild(th);
           
           th = document.createElement("th");
           th.textContent = "Tiim";
+          th.classList.add("minimize");
           th.style.width = "160px";
-          th.style.backgroundColor = "#B29B27";
+          // Muuda tiimi nimi halliks, kui antud küsimuse eest punkt on juba antud
+          currentGame.teams.forEach((team, teamIndex) => {
+            if (team.scores[currentQuestion] !== undefined) {
+              th.style.color = "gray";
+            }
+          });
           theadRow.appendChild(th);
           
           th = document.createElement("th");
           th.textContent = "Punktid";
+          th.classList.add("minimize");
           th.style.width = "50px";
-          th.style.backgroundColor = "#B29B27";
           theadRow.appendChild(th);
           
           for (let q = 0; q < totalQuestions; q++) {
             th = document.createElement("th");
-            th.textContent = q + 1;
-            th.classList.add("question-cell");
+            th.textContent = (q + 1).toString();
+            th.classList.add("minimize", "question-cell");
             th.style.width = "30px";
-            th.style.paddingLeft = "2px";
-            th.style.paddingRight = "2px";
-            th.style.backgroundColor = "#B29B27";
             theadRow.appendChild(th);
           }
-          let sortedTeams = currentGame.teams.slice().sort((a, b) => getTotalScore(b) - getTotalScore(a));
-          let rankings = [];
-          for (let i = 0; i < sortedTeams.length; ) {
-            let startRank = i + 1;
-            let currentScore = getTotalScore(sortedTeams[i]);
-            let tieCount = 1;
-            let j = i + 1;
-            while(j < sortedTeams.length && getTotalScore(sortedTeams[j]) === currentScore) { tieCount++; j++; }
-            let rankLabel = tieCount > 1 ? `${startRank}-${startRank + tieCount - 1}` : `${startRank}`;
-            for (let k = i; k < j; k++) { rankings[k] = rankLabel; }
-            i = j;
-          }
+          
           sortedTeams.forEach((team, teamIndex) => {
             const tr = document.createElement("tr");
-            
             let td = document.createElement("td");
             td.textContent = rankings[teamIndex];
+            td.classList.add("minimize");
             td.style.width = "40px";
             tr.appendChild(td);
             
             td = document.createElement("td");
             let teamName = team.name;
             if (teamName.length > 20) { teamName = teamName.substring(0, 17) + "..."; }
-            td.textContent = teamName;
+            td.innerHTML = `<strong>${teamName}</strong>`;
             td.style.width = "160px";
+            // Kui selle küsimuse eest punkt on antud, muuta tiimi nimi halliks
+            if (team.scores[currentQuestion] !== undefined) {
+              td.style.color = "gray";
+            }
             tr.appendChild(td);
             
             td = document.createElement("td");
@@ -1137,17 +1268,12 @@
             
             for (let q = 0; q < totalQuestions; q++) {
               td = document.createElement("td");
-              td.classList.add("question-cell");
               td.style.width = "30px";
-              td.style.paddingLeft = "2px";
-              td.style.paddingRight = "2px";
+              td.style.fontWeight = "normal";
               let score = team.scores[q];
               if (score !== undefined) {
                 let scoreValue = parseFloat(score);
-                let boxColor;
-                if (scoreValue === 0) { boxColor = "#BE1E1C"; }
-                else if (scoreValue >= 0.1 && scoreValue < 2) { boxColor = "#FFB400"; }
-                else if (scoreValue >= 2) { boxColor = "#636500"; }
+                let boxColor = scoreValue < 2 ? "#FFB400" : "#636500";
                 let span = document.createElement("span");
                 span.textContent = formatScore(score);
                 span.style.backgroundColor = boxColor;
@@ -1157,38 +1283,33 @@
                 span.style.borderRadius = "4px";
                 span.style.display = "inline-block";
                 td.appendChild(span);
-              } else { td.textContent = ""; }
+              } else {
+                td.textContent = "";
+              }
               tr.appendChild(td);
             }
             tbody.appendChild(tr);
           });
         }
-        // Muuda alumised nupud: kasutame resultsButtons konteinerit
+        
         const resultsButtons = document.getElementById("resultsButtons");
         resultsButtons.innerHTML = "";
         const scoreEntryBtn = document.createElement("button");
         scoreEntryBtn.textContent = "Tagasi punkte sisestama";
         scoreEntryBtn.classList.add("button");
-        scoreEntryBtn.style.backgroundColor = "#B29B27"; // heleroheline
+        scoreEntryBtn.style.backgroundColor = "#B29B27";
         scoreEntryBtn.addEventListener("click", () => { showView("scoreEntryView"); });
         resultsButtons.appendChild(scoreEntryBtn);
-        
         const finishBtn = document.createElement("button");
         finishBtn.textContent = "Lõpeta mäng";
         finishBtn.classList.add("button");
-        finishBtn.style.backgroundColor = "#FF6333"; // roosa
+        finishBtn.style.backgroundColor = "#FF6333";
         finishBtn.addEventListener("click", () => {
           if (confirm("Oled sa kindel, et soovid mängu lõpetada?")) { finishGame(); }
         });
         resultsButtons.appendChild(finishBtn);
       }
-
-      function getTotalScore(team) {
-        let total = 0;
-        for (let q = 0; q < totalQuestions; q++) { total += parseFloat(team.scores[q]) || 0; }
-        return total;
-      }
-
+      
       function calculateRankings() {
         let teamData = currentGame.teams.map((team, index) => ({
           index: index,
@@ -1209,7 +1330,13 @@
         }
         return rankings;
       }
-
+      
+      function getTotalScore(team) {
+        let total = 0;
+        for (let q = 0; q < totalQuestions; q++) { total += parseFloat(team.scores[q]) || 0; }
+        return total;
+      }
+      
       function previousNavigation() {
         if (currentGame.rounds) {
           if (currentRound > 0) { currentRound--; highlightNavigation(); renderTable(); }
@@ -1217,7 +1344,6 @@
           if (currentQuestion > 0) { currentQuestion--; highlightNavigation(); renderTable(); }
         }
       }
-
       function nextNavigation() {
         if (currentGame.rounds) {
           if (currentRound < currentGame.numRounds - 1) { currentRound++; highlightNavigation(); renderTable(); }
@@ -1225,14 +1351,17 @@
           if (currentQuestion < totalQuestions - 1) { currentQuestion++; highlightNavigation(); renderTable(); }
         }
       }
-
+      
       function toggleRoundVisibility(round) {
-        roundVisibility[round] = !roundVisibility[round];
+        resultsHiddenRounds[round] = !resultsHiddenRounds[round];
         const btn = document.getElementById("roundNavBtn" + round);
-        if (btn) { if (roundVisibility[round]) btn.classList.add("active-option"); else btn.classList.remove("active-option"); }
+        if (btn) {
+          if (resultsHiddenRounds[round]) btn.classList.add("active-option");
+          else btn.classList.remove("active-option");
+        }
         renderResults();
       }
-
+      
       function finishGame() {
         if (!currentGame) return;
         finishedGames.push(currentGame);
@@ -1243,53 +1372,122 @@
         alert("Mäng on lõppenud.");
         showView("homeView");
       }
-
-      function previousNavigation() {
-        if (currentGame.rounds) {
-          if (currentRound > 0) { currentRound--; highlightNavigation(); renderTable(); }
-        } else {
-          if (currentQuestion > 0) { currentQuestion--; highlightNavigation(); renderTable(); }
+      
+      // Grupihaldus funktsioonid
+      document.getElementById("groupNameInput")?.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+          document.getElementById("saveGroupButton").click();
         }
-      }
-
-      function nextNavigation() {
-        if (currentGame.rounds) {
-          if (currentRound < currentGame.numRounds - 1) { currentRound++; highlightNavigation(); renderTable(); }
-        } else {
-          if (currentQuestion < totalQuestions - 1) { currentQuestion++; highlightNavigation(); renderTable(); }
+      });
+      document.getElementById("groupTeamInput")?.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+          document.getElementById("addGroupTeamButton").click();
         }
+      });
+      document.getElementById("newGroupButton")?.addEventListener("click", () => {
+        document.getElementById("groupInputContainer").style.display = "block";
+      });
+      document.getElementById("saveGroupButton")?.addEventListener("click", () => {
+        const groupName = document.getElementById("groupNameInput").value.trim();
+        if (!groupName) { alert("Sisesta grupi nimi."); return; }
+        const newGroup = { groupName: groupName, teams: [] };
+        groups.push(newGroup);
+        updateSavedGroupsDisplay();
+        document.getElementById("groupInputContainer").style.display = "none";
+      });
+      document.getElementById("addGroupTeamButton")?.addEventListener("click", () => {
+        const teamName = document.getElementById("groupTeamInput").value.trim();
+        if (!teamName) { alert("Sisesta tiimi nimi."); return; }
+        const currentGroup = groups[groups.length - 1];
+        currentGroup.teams.push(teamName);
+        updateSavedGroupsDisplay();
+        document.getElementById("groupTeamInput").value = "";
+      });
+      function updateSavedGroupsDisplay() {
+        const container = document.getElementById("savedGroupsContainer");
+        container.innerHTML = "";
+        groups.forEach((group, index) => {
+          const groupDiv = document.createElement("div");
+          groupDiv.classList.add("group-item");
+          const headerDiv = document.createElement("div");
+          headerDiv.classList.add("group-item-header");
+          headerDiv.innerHTML = `<strong>${group.groupName}</strong> <button class="delete-group-btn" data-group-index="${index}">x</button> <button class="add-group-to-game-btn" data-group-index="${index}">Lisa grupp mängu</button>`;
+          groupDiv.appendChild(headerDiv);
+          headerDiv.addEventListener("click", function(e) {
+            if (e.target && (e.target.classList.contains("delete-group-btn") || e.target.classList.contains("add-group-to-game-btn"))) return;
+            const teamsDiv = groupDiv.querySelector(".group-teams");
+            teamsDiv.style.display = (teamsDiv.style.display === "none" || teamsDiv.style.display === "") ? "flex" : "none";
+          });
+          const teamsDiv = document.createElement("div");
+          teamsDiv.classList.add("group-teams");
+          group.teams.forEach((team, tIndex) => {
+            const teamDiv = document.createElement("div");
+            teamDiv.classList.add("group-team");
+            teamDiv.textContent = team;
+            const delBtn = document.createElement("button");
+            delBtn.textContent = "x";
+            delBtn.className = "remove-saved-btn";
+            delBtn.addEventListener("click", (e) => {
+              e.stopPropagation();
+              group.teams.splice(tIndex, 1);
+              updateSavedGroupsDisplay();
+            });
+            teamDiv.appendChild(delBtn);
+            teamsDiv.appendChild(teamDiv);
+          });
+          const addTeamDiv = document.createElement("div");
+          addTeamDiv.classList.add("group-add-team");
+          addTeamDiv.innerHTML = `<input type="text" id="groupTeamInputExtra_${index}" class="input-field small-input" placeholder="Sisesta tiimi nimi" style="width:150px; display:inline-block;" /> <button class="button" style="background-color:#FF6333; padding:5px 10px; font-size:0.8em;" data-group-index="${index}" id="addGroupTeamExtraButton_${index}">Lisa</button>`;
+          teamsDiv.appendChild(addTeamDiv);
+          teamsDiv.style.display = "flex";
+          groupDiv.appendChild(teamsDiv);
+          container.appendChild(groupDiv);
+          document.getElementById(`groupTeamInputExtra_${index}`).addEventListener("keydown", (e) => {
+            if (e.key === "Enter") {
+              document.getElementById(`addGroupTeamExtraButton_${index}`).click();
+            }
+          });
+          document.getElementById(`addGroupTeamExtraButton_${index}`).addEventListener("click", (e) => {
+            const inputField = document.getElementById(`groupTeamInputExtra_${index}`);
+            const teamName = inputField.value.trim();
+            if (!teamName) { alert("Sisesta tiimi nimi."); return; }
+            groups[index].teams.push(teamName);
+            inputField.value = "";
+            updateSavedGroupsDisplay();
+          });
+        });
       }
-
-      function calculateRankings() {
-        let teamData = currentGame.teams.map((team, index) => ({
-          index: index,
-          total: getTotalScore(team)
-        }));
-        teamData.sort((a, b) => b.total - a.total);
-        let rankings = Array(currentGame.teams.length).fill("");
-        let i = 0;
-        while (i < teamData.length) {
-          let startRank = i + 1;
-          let currentScore = teamData[i].total;
-          let tieCount = 1;
-          let j = i + 1;
-          while (j < teamData.length && teamData[j].total === currentScore) { tieCount++; j++; }
-          let rankLabel = tieCount > 1 ? `${startRank}-${startRank + tieCount - 1}` : `${startRank}`;
-          for (let k = i; k < j; k++) { rankings[teamData[k].index] = rankLabel; }
-          i = j;
+      document.addEventListener("click", (e) => {
+        if (e.target && e.target.classList.contains("add-group-to-game-btn")) {
+          const groupIndex = e.target.getAttribute("data-group-index");
+          const group = groups[groupIndex];
+          group.teams.forEach(teamName => {
+            if (!teams.includes(teamName)) {
+              teams.push(teamName);
+            }
+          });
+          updateTeamsList();
         }
-        return rankings;
-      }
-
+        if (e.target && e.target.classList.contains("delete-group-btn")) {
+          const groupIndex = e.target.getAttribute("data-group-index");
+          groups.splice(groupIndex, 1);
+          updateSavedGroupsDisplay();
+        }
+      });
+      
       document.addEventListener("DOMContentLoaded", () => {
         loadData();
         document.getElementById("newGameButton").addEventListener("click", () => { showView("createGameView"); });
         document.getElementById("addTeamButton").addEventListener("click", addTeam);
-        document.getElementById("teamName").addEventListener("keypress", function (e) { if (e.key === "Enter") { addTeam(); } });
+        document.getElementById("teamName").addEventListener("keypress", function(e) { if (e.key === "Enter") { addTeam(); } });
         document.getElementById("backToHomeButton").addEventListener("click", backToHome);
-        document.getElementById("startGameButton").addEventListener("click", function () {
-          if (currentGame) { if (confirm("Kas soovid alustada uut mängu?")) { startGame(); document.getElementById("continueGameButton").style.display = "none"; } }
-          else { startGame(); }
+        document.getElementById("startGameButton").addEventListener("click", function() {
+          if (currentGame) {
+            if (confirm("Kas soovid alustada uut mängu?")) {
+              startGame();
+              document.getElementById("continueGameButton").style.display = "none";
+            }
+          } else { startGame(); }
         });
         document.getElementById("continueGameButton").addEventListener("click", continueGame);
         document.getElementById("normalMode").addEventListener("change", () => toggleRounds(false));
